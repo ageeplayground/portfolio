@@ -81,6 +81,27 @@ function animateCount(element, target) {
 }
 
 // ========================================
+// Contact Form (mailto-based, no subscription needed)
+// ========================================
+const contactForm = document.getElementById('contact-form');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const service = document.getElementById('service').value || 'Not specified';
+    const message = document.getElementById('message').value.trim();
+
+    const subject = encodeURIComponent(`Portfolio Inquiry: ${service}`);
+    const body = encodeURIComponent(
+        `Hi Andrew,\n\n${message}\n\n---\nFrom: ${name}\nEmail: ${email}\nService: ${service}`
+    );
+
+    window.location.href = `mailto:andrew.germanops@gmail.com?subject=${subject}&body=${body}`;
+});
+
+// ========================================
 // Smooth scroll for anchor links
 // ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

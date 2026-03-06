@@ -347,10 +347,28 @@
                         </a>
                     </div>
                 </div>
-                <div class="contact-cta-box">
-                    <p class="contact-cta-text">Drop me an email and let's discuss how we can work together.</p>
-                    <a href="mailto:andrew.germanops@gmail.com" class="btn btn-primary btn-full">Email Me</a>
-                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="service" name="service">
+                            <option value="" disabled selected>What are you looking for?</option>
+                            <option value="Marketing Ops Consulting">Marketing Ops Consulting</option>
+                            <option value="Automation Strategy">Automation Strategy</option>
+                            <option value="Martech Implementation">Martech Implementation</option>
+                            <option value="Career Opportunity">Career Opportunity</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Tell me what you're working on..." rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
