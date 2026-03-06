@@ -81,27 +81,6 @@ function animateCount(element, target) {
 }
 
 // ========================================
-// Contact Form
-// ========================================
-const contactForm = document.getElementById('contact-form');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const btn = contactForm.querySelector('button[type="submit"]');
-    const originalText = btn.textContent;
-
-    btn.textContent = 'Message Sent!';
-    btn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
-
-    setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-        contactForm.reset();
-    }, 3000);
-});
-
-// ========================================
 // Smooth scroll for anchor links
 // ========================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
