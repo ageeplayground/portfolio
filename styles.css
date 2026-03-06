@@ -471,6 +471,25 @@ img {
     padding: 20px;
 }
 
+.work-card-logo {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.work-card-logo .work-card-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.company-logo {
+    width: 180px;
+    height: auto;
+    opacity: 0.95;
+}
+
 .work-card-large .work-card-image {
     height: 300px;
 }
