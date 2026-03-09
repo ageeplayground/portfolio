@@ -345,28 +345,20 @@
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xreyewgb" method="POST">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <select id="service" name="service">
-                            <option value="" disabled selected>What are you looking for?</option>
-                            <option value="Marketing Ops Consulting">Marketing Ops Consulting</option>
-                            <option value="Automation Strategy">Automation Strategy</option>
-                            <option value="Martech Implementation">Martech Implementation</option>
-                            <option value="Career Opportunity">Career Opportunity</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Tell me what you're working on..." rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                </form>
+<form>
+  action="https://formspree.io/f/xreyewgb"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <button type="submit">Send</button>
+</form>
             </div>
         </div>
     </section>
