@@ -81,24 +81,40 @@ function animateCount(element, target) {
 }
 
 // ========================================
-// Contact Form (mailto-based, no subscription needed)
+// Contact Form (Formspree)
 // ========================================
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const service = document.getElementById('service').value || 'Not specified';
-    const message = document.getElementById('message').value.trim();
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
 
-    const subject = encodeURIComponent(`Portfolio Inquiry: ${service}`);
-    const body = encodeURIComponent(
-        `Hi Andrew,\n\n${message}\n\n---\nFrom: ${name}\nEmail: ${email}\nService: ${service}`
-    );
+    const data = new FormData(contactForm);
 
-    window.location.href = `mailto:andrew.germanops@gmail.com?subject=${subject}&body=${body}`;
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            contactForm.reset();
+            submitBtn.textContent = 'Message Sent!';
+            setTimeout(() => {
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+            }, 4000);
+        } else {
+            throw new Error('Server error');
+        }
+    } catch {
+        submitBtn.textContent = 'Something went wrong — try again';
+        submitBtn.disabled = false;
+    }
 });
 
 // ========================================
