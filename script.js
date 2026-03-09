@@ -95,7 +95,7 @@ contactForm.addEventListener('submit', async (e) => {
     const data = new FormData(contactForm);
 
     try {
-        const response = await fetch(contactForm.action, {
+        const response = await fetch('https://formspree.io/f/xreyewgb', {
             method: 'POST',
             body: data,
             headers: { 'Accept': 'application/json' }
@@ -109,9 +109,10 @@ contactForm.addEventListener('submit', async (e) => {
                 submitBtn.disabled = false;
             }, 4000);
         } else {
-            throw new Error('Server error');
+            submitBtn.textContent = 'Something went wrong — try again';
+            submitBtn.disabled = false;
         }
-    } catch {
+    } catch (err) {
         submitBtn.textContent = 'Something went wrong — try again';
         submitBtn.disabled = false;
     }
